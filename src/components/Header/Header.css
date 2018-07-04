@@ -1,0 +1,11 @@
+.header-container {
+  background-color: #00A3D5;
+  padding: 5px 15px;
+  color: white;
+  text-align: left;
+}
+
+.header-title {
+  font-size: 1.5em;
+  letter-spacing: .05em;
+}
