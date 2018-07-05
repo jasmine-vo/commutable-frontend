@@ -1,0 +1,84 @@
+@media (min-width: 548px) {
+  input[type=text] {
+    margin-right: 16px;
+  }
+  #form-submit-btn {
+    width: 42px;
+  }
+}
+
+@media (min-width: 490px) {
+  #job-search {
+    flex: 2;
+  }
+  #address {
+    flex: 1;
+  }
+}
+
+@media (max-width: 489px) {
+  input[type=text] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 499px) {
+  input[type=text] {
+    margin-bottom: 12px;
+  }
+  #form-submit-btn {
+    width: 100%;
+  }
+}
+
+.search-bar-container {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.search-bar-form-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  height: 40px;
+  padding: 0 16px;
+}
+
+#job-search {
+  background-image: url('https://material.io/tools/icons/static/icons/round-search-24px.svg');
+}
+
+#address {
+  background-image: url('https://material.io/tools/icons/static/icons/outline-location_on-24px.svg');
+}
+
+input[type=text] {
+  border: 1px solid #808080; /* gray */
+  border-radius: 2px;
+  padding: 0 16px 0 36px;
+  height: 100%;
+  font-size: 16px;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: 5px center;
+}
+
+label {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+#form-submit-btn {
+  border: 1px solid #808080; /* gray */
+  border-radius: 2px;
+  padding: 0;
+  height: 42px;
+  font-size: 16px;
+  color: #fff;
+  outline: 0;
+  background-color: #00A3D5;
+  text-align: center;
+  margin: 0 auto;
+}
