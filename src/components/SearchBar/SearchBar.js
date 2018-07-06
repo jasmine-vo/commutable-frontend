@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
+import { isBlank } from '../../utils/helpers';
 
 class SearchBar extends Component {
 
   state = {
-    jobSearch: "",
-    address: ""
+    jobSearch: '',
+    address: ''
   }
 
   handleChange = (e) => {
@@ -15,7 +16,10 @@ class SearchBar extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    // send data to job search API
+    // TO DO: if field is blank, display error message
+    console.log(isBlank(this.state.jobSearch));
+
+    // TO DO: send data to job search API
     console.log(this.state);
   }
 
