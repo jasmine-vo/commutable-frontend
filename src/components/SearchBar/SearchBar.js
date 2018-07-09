@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './SearchBar.css';
 
 import { isBlank } from '../../utils/helpers';
-import { getStations } from '../../utils/api';
 
 class SearchBar extends Component {
 
-  state = {
-    jobSearch: '',
-    address: '',
-    jobAlertVisible: false,
-    bartStations: ''
+  static propTypes = {
+    stations: PropTypes.array.isRequired
   }
 
-  componentDidMount() {
-    getStations()
-      .then(data => this.setState({ bartStations: data }));
+  state = {
+    jobSearch: '',
+    bartStation: '',
+    jobAlertVisible: false,
   }
 
   handleChange = (e) => {
@@ -42,6 +40,7 @@ class SearchBar extends Component {
   render() {
 
     const { jobAlertVisible } = this.state
+    const { stations } = this.props
 
     return (
       <div className="search-bar-container">
@@ -65,16 +64,25 @@ class SearchBar extends Component {
               : null }
             </div>
             <div className="address-wrapper">
-              <label htmlFor="address">
+              <label htmlFor="bart-station">
                 Your location
               </label>
               <input
-                name="address"
-                id="address"
+                name="bartStation"
+                id="bart-station"
                 type="text"
-                placeholder="Your Location"
+                list="stations"
+                placeholder="Your BART Station or Address"
                 onChange={this.handleChange}
               />
+              <datalist id="stations">
+                {stations.map((station) =>
+                  <option
+                    key={station.abbr}
+                    value={station.name}
+                  />
+                )};
+              </datalist>
             </div>
             <button type="submit" name="submit" id="form-submit-btn">
               <i className="material-icons">search</i>
