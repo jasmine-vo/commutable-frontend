@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import './SearchBar.css';
 
 import { isBlank } from '../../utils/helpers';
+import { getStations } from '../../utils/api';
 
 class SearchBar extends Component {
 
   state = {
     jobSearch: '',
     address: '',
-    jobAlertVisible: false
+    jobAlertVisible: false,
+    bartStations: ''
+  }
+
+  componentDidMount() {
+    getStations()
+      .then(data => this.setState({ bartStations: data }));
   }
 
   handleChange = (e) => {
